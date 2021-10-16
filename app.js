@@ -7,7 +7,7 @@ const app = express();
 const postController = require('./controllers/postController');
 const pageController = require('./controllers/pageController');
 //connect db
-mongoose.connect('mongodb://localhost/cleanblog-test-db');
+mongoose.connect('mongodb+srv://ataberk:GrpfwN8Jza2v!6m@cluster0.7nwit.mongodb.net/cleanblog-db?retryWrites=true&w=majority');
 //Template Engine
 app.set("view engine", "ejs");
 //Middlewares
@@ -28,5 +28,5 @@ app.post('/posting', postController.createPost);
 app.put('/post/:id',postController.updatePost);
 app.delete('/posts/:id',postController.deletePost);
 
- 
-app.listen(3000)
+ const port = process.env.PORT || 5000;
+app.listen(port);
